@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Логин</title>
+{#    <link rel="stylesheet" href="{% static 'css/main.css' %}">#}
+</head>
+<body>
+{% if user.is_authenticated %}
+<h1>Вы уже авторизованы</h1>
+    <p><a href="/logout">Выйти</a></p>
+    <p><a href="/">Главная</a></p>
+{% else %}
+<h1>Войти в систему</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Ok</button>
+<p style="color: red;">{{ error }}</p>
+</form>
+<p>Если у вас нету аккаунта вы можете <a href="/registration">Зарегестрироватся</a></p>
+{% endif %}
+
+</body>
+</html>

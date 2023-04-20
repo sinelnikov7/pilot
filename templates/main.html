@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><a href="/logout">Выйти</a></p>
+Hello!!{{ request.user }}
+{% if request.user.is_superuser %}
+    <h1>Шаги всех пользователей:</h1>
+    {% for game in games %}
+        <p>Пользователь - {{ game.player }}, шаг - {{ game.step }}, x - {{ game.x }}, y - {{ game.y }}, время - {{ game.time }}</p>
+
+    {% endfor %}
+{% else %}
+    <h1>Ваши шаги:</h1>
+    {% for game in games %}
+        <p>Шаг - {{ game.step }}, x - {{ game.x }}, y - {{ game.y }}, время - {{ game.time }}</p>
+    {% endfor %}
+{% endif %}
+</body>
+</html>
