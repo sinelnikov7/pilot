@@ -119,7 +119,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+pilot
+pilot/
+/pilot
 # Spyder project settings
 .spyderproject
 .spyproject
